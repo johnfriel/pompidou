@@ -6,39 +6,13 @@ require 'active_support/core_ext/object/blank'
 
 module Pompidou
   module Generators
-    #class ScaffoldGenerator < Rails::Generators::ResourceGenerator
     class ScaffoldGenerator < Rails::Generators::NamedBase
       include Rails::Generators::ModelHelpers
       include Rails::Generators::ResourceHelpers
       
-      #remove_hook_for :resource_controller
-      #remove_hook_for :resource_route
-      #remove_class_option :actions
-    
-      class_option :stylesheets, type: :boolean, desc: "Generate Stylesheets"
-      class_option :stylesheet_engine, desc: "Engine for Stylesheets"
-      class_option :assets, type: :boolean
-      #class_option :resource_route, type: :boolean
-      
       argument :attributes, type: :array, default: [], banner: "field[:type][:index] field[:type][:index]"
       
-      def handle_skip
-        @options = @options.merge(stylesheets: false) unless options[:assets]
-        @options = @options.merge(stylesheet_engine: false) unless options[:stylesheets]
-        @options = @options.merge(orm: :active_record) unless options[:orm]
-      end
-
-      hook_for :orm, required: true
-      
-      #def orm_class
-      #  Rails::Generators::ActiveModel
-      #end
-   
-      ## worked as files in /lib 
-      #invoke :pompidou_controller
-      #invoke :pompidou_resource
-      
-      #invoke :active_record
+      invoke 'active_record:model'
       invoke 'pompidou:scaffold_controller'
       invoke 'pompidou:resource'
     
