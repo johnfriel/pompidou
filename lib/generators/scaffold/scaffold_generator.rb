@@ -19,10 +19,18 @@ module Pompidou
         @options = @options.merge(stylesheets: false) unless options[:assets]
         @options = @options.merge(stylesheet_engine: false) unless options[:stylesheets]
       end
-    
-      invoke :pompidou_controller
-      invoke :pompidou_resource
-    
+   
+      ## worked as files in /lib 
+      #invoke :pompidou_controller
+      #invoke :pompidou_resource
+  
+      # from pompidou/generators/scaffold_controller_generator  (works)
+      #hook_for :template_engine, as: :pompidou
+      #hook_for :test_framework, as: :scaffold
+      
+      hook_for :scaffold_controller, as: :pompidou
+      hook_for :resource, as: :pompidou
+
     end
   end
 end
