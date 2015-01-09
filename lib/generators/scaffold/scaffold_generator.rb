@@ -29,11 +29,12 @@ module Pompidou
       #hook_for :test_framework, as: :scaffold
       
       #hook_for :scaffold_controller, as: :pompidou
-      hook_for :resource, as: :pompidou
+      #hook_for :resource, as: :pompidou
       
       # Try these:
       #invoke :resource
-      #invoke :resource, as: :pompidou
+      invoke :'pompidou:resource'
+      #invoke :'pompidou:resource', as: :pompidou
 
     end
   end
