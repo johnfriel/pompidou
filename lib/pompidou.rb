@@ -5,5 +5,5 @@ end
 
 require "rails/generators"
 require "pompidou/generators"
-require "pompidou/bingbong" if defined?(Rails)
+require "pompidou/railtie" if defined?(Rails)
 
