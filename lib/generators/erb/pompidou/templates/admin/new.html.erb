@@ -1,0 +1,10 @@
+<div class='row'>
+  <div class='small-12 columns'>
+
+    <h1>New <%= singular_table_name.humanize %></h1>
+    
+    <%%= render 'form' %>
+    
+    <%%= link_to 'Back', admin_<%= index_helper %>_path %>
+  </div>
+</div>

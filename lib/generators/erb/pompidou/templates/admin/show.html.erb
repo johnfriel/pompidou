@@ -1,0 +1,44 @@
+<div class='row'>
+  <div class='small-12 columns'>
+    <div class='row'>
+      <div class='small-12 medium-7 large-9 columns'>
+        <h1><!-- Title attribute goes here --></h1>
+        <h5 class='subheader'><!-- subtitle or equivalent attribute goes here --></h5>
+      </div>
+      <div class='small-12 medium-5 large-3 columns text-right' style='margin-top:16px;'>
+        <ul class='button-group radius right'>
+          <li>
+            <%%= link_to 'Edit', edit_admin_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: 'button tiny secondary' %>
+          </li>
+          <li>
+            <%%= link_to 'Back', admin_<%= index_helper %>_path, class: 'button tiny secondary' %>
+          </li>
+          <li>
+            <%%= link_to 'Delete', admin_<%= index_helper %>_path(id: @<%= singular_table_name %>), method: 'delete', data: {confirm: 'Are you sure?'}, class: 'button tiny secondary' %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class='row'>
+  <div class='small-12 columns'>
+    <p id="notice"><%%= notice %></p>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='small-12 columns'>
+
+    <% attributes.reject(&:password_digest?).each do |attribute| -%>
+    <p>
+      <strong><%= attribute.human_name %>:</strong>
+      <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+    </p>
+    
+    <% end -%>
+
+  </div>
+</div>

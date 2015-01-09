@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.name          = "pompidou"
   spec.version       = Pompidou::VERSION
   spec.authors       = ["John Friel"]
-  spec.email         = ["friel.john@gmail.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.email         = ["john@johnfriel.net"]
+  spec.summary       = %q{A scaffolding generator that makes assumptions about your app}
+  spec.description   = %q{A scaffolding generator that makes assumptions about your app}
   spec.homepage      = ""
   spec.license       = "MIT"
 

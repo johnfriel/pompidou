@@ -1,0 +1,44 @@
+<%%= form_for([:admin, @<%= singular_table_name %>]) do |f| %>
+  <%% if @<%= singular_table_name %>.errors.any? %>
+    <div class="row">
+      <div class="small-12 columns panel" id="error_explanation">
+        <h5><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h5>
+
+        <ul>
+        <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
+          <li><%%= msg %></li>
+        <%% end %>
+        </ul>
+      </div>
+    </div>
+  <%% end %>
+  
+  <div class="row">
+    <div class="small-12 columns">
+      <fieldset>
+        <legend>Basic Info</legend>
+
+<% attributes.each do |attribute| -%>
+<% if attribute.password_digest? -%>
+    <%%= f.label :password %>
+    <%%= f.password_field :password %>
+    <%%= f.label :password_confirmation %>
+    <%%= f.password_field :password_confirmation %>
+<% else -%>
+  <%- if attribute.reference? -%>
+    <%%= f.label :<%= attribute.column_name %> %>
+    <%%= f.<%= attribute.field_type %> :<%= attribute.column_name %> %>
+  <%- else -%>
+    <%%= f.label :<%= attribute.name %> %>
+    <%%= f.<%= attribute.field_type %> :<%= attribute.name %> %>
+  <%- end -%>
+<% end -%>
+<% end -%>
+      </fieldset>
+    </div>
+    
+    <div class="small-12 columns actions">
+      <%%= f.submit nil, class: 'button small secondary radius' %>
+    </div>
+  </div>
+<%% end %>
