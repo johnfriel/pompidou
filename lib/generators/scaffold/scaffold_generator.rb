@@ -24,7 +24,7 @@ module Pompidou
       #invoke :pompidou_controller
       #invoke :pompidou_resource
       
-      invoke 'pompidou:controller'
+      invoke 'pompidou:scaffold_controller'
       invoke 'pompidou:resource'
     
     end
