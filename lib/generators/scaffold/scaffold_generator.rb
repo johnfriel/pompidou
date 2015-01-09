@@ -22,16 +22,17 @@ module Pompidou
       
       argument :attributes, type: :array, default: [], banner: "field[:type][:index] field[:type][:index]"
       
-      hook_for :orm, required: true
-    
       def handle_skip
         @options = @options.merge(stylesheets: false) unless options[:assets]
         @options = @options.merge(stylesheet_engine: false) unless options[:stylesheets]
+        @options = @options.merge(orm: :active_record) unless options[:orm]
       end
 
-      def orm_class
-        Rails::Generators::ActiveModel
-      end
+      hook_for :orm, required: true
+      
+      #def orm_class
+      #  Rails::Generators::ActiveModel
+      #end
    
       ## worked as files in /lib 
       #invoke :pompidou_controller
