@@ -23,19 +23,10 @@ module Pompidou
       ## worked as files in /lib 
       #invoke :pompidou_controller
       #invoke :pompidou_resource
-  
-      # from pompidou/generators/scaffold_controller_generator  (works)
-      #hook_for :template_engine, as: :pompidou
-      #hook_for :test_framework, as: :scaffold
       
-      #hook_for :scaffold_controller, as: :pompidou
-      #hook_for :resource, as: :pompidou
-      
-      # Try these:
-      #invoke :resource
-      invoke :'pompidou:resource'
-      #invoke :'pompidou:resource', as: :pompidou
-
+      invoke 'pompidou:controller'
+      invoke 'pompidou:resource'
+    
     end
   end
 end
