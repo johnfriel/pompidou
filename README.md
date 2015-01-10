@@ -2,9 +2,9 @@
 
 Pompidou is a toolkit and scaffolding generator for content management systems.
 
-Please note: Pompidou is currently unstable, highly subject to significant change and tightly coupled to the idiosyncracies of its author's development workflow.
+**Please note:** Pompidou is currently unstable, highly subject to significant change and tightly coupled to the idiosyncracies of its author's development workflow.
 
-Project TODOs:
+### Project TODOs:
 
 * Create a generator for a default Public::BaseController
 * Create a generator for a default Admin::BaseController
@@ -32,13 +32,13 @@ Or install it yourself as:
 Pompidou's scaffolding is meant to be a drop-in replacement for the default scaffolding generator that ships with Rails. Simply replace `scaffold` with `pompidou:scaffold`. For example, instead of executing
 
 ``` bash
-rails generate scaffold Widget Foo:string Bar:integer Baz:text Quux:boolean
+$ rails generate scaffold Widget foo:string bar:integer baz:text quux:boolean
 ```
 
 one would execute:
 
 ``` bash
-rails generate pompidou:scaffold Widget Foo:string Bar:integer Baz:text Quux:boolean
+$ rails generate pompidou:scaffold Widget foo:string bar:integer baz:text quux:boolean
 ```
 
 This will give you the following deviations from the standard scaffolding:
@@ -56,7 +56,7 @@ It will *not* generate:
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/pompidou/fork )
+1. Fork it ( https://github.com/johnfriel/pompidou/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
